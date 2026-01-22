@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denis Stocks & Securities Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            overflow: hidden;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Snow Effect */
+        #snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(105vh); }
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; color: black !important; }
+            .bg-slate-950, .bg-slate-900 { background: white !important; border: 1px solid #ccc !important; }
+            .text-white { color: black !important; }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+</head>
+<body>
+    <div id="snow"></div>
+    <div id="root"></div>
+    <script>
+        // Simple snow generator
+        const snowContainer = document.getElementById('snow');
+        const flakeCount = 50;
+        for (let i = 0; i < flakeCount; i++) {
+            const flake = document.createElement('div');
+            flake.className = 'snowflake';
+            const size = Math.random() * 3 + 1 + 'px';
+            flake.style.width = size;
+            flake.style.height = size;
+            flake.style.left = Math.random() * 100 + 'vw';
+            flake.style.animationDuration = Math.random() * 3 + 7 + 's';
+            flake.style.animationDelay = Math.random() * 5 + 's';
+            snowContainer.appendChild(flake);
+        }
+    </script>
+</body>
+</html>

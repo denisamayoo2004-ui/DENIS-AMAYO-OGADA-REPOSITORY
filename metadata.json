@@ -1,0 +1,7 @@
+{
+  "name": "Denis Stocks and Securities Analysis",
+  "description": "An advanced AI-driven platform for real-time Nairobi Securities Exchange (NSE) analysis, virtual trading, and investment education.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
